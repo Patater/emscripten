@@ -107,9 +107,8 @@ function nullify(node) {
 }
 
 function undefinedify(node) {
-  node.type = 'Literal';
-  node.value = undefined;
-  node.raw = 'undefined';
+  node.type = 'Identifier';
+  node.name = undefined;
 }
 
 function setLiteralValue(item, value) {
