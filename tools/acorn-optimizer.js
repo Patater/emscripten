@@ -777,11 +777,7 @@ if (0) {
   });
 } else {
   output = escodegen.generate(ast, {
-    indent: minifyWhitespace ? '' : ' ',
-    format: {
-      compact: minifyWhitespace
-      //semicolons: ~minifyWhitespace,
-    }
+    format: minifyWhitespace ? escodegen.FORMAT_MINIFY : escodegen.FORMAT_DEFAULTS
   });
 }
 
