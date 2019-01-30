@@ -1,5 +1,6 @@
 var acorn = require('acorn');
 var astring = require('astring');
+var escodegen = require('escodegen');
 var fs = require('fs');
 var path = require('path');
 
@@ -768,11 +769,22 @@ passes.forEach(function(pass) {
 
 //print('\nPOST\n' + JSON.stringify(ast, null, ' '));
 
-var output = astring.generate(ast, {
-  indent: minifyWhitespace ? '' : ' ',
-  lineEnd: minifyWhitespace ? '' : '\n',
-  // may want to use escodegen with compact=true and semicolons=false (but it has many more deps)
-});
+var output;
+
+if (0) {
+  output = astring.generate(ast, {
+    indent: minifyWhitespace ? '' : ' ',
+    lineEnd: minifyWhitespace ? '' : '\n',
+  });
+} else {
+  output = escodegen.generate(ast, {
+    indent: minifyWhitespace ? '' : ' ',
+    format: {
+      compact: minifyWhitespace
+      //semicolons: ~minifyWhitespace,
+    }
+  });
+}
 
 if (!noPrint) {
   print(output);

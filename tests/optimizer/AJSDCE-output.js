@@ -27,10 +27,9 @@ print(h(123));
   return a + 1;
  }
  print(hh(123));
-})();
+}());
 function glue() {
  ;
  ;
 }
 glue();
-
