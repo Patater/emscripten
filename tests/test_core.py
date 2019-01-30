@@ -5998,7 +5998,6 @@ return malloc(size);
 
     filename = 'src.cpp'
     self.do_autodebug(filename)
-    return
 
     # Compare to each other, and to expected output
     self.do_ll_run(filename + '.o.ll.ll', 'AD:-1,1')
@@ -6998,9 +6997,9 @@ err = err = function(){};
       seen_lines.add(m['originalLine'])
     # ensure that all the 'meaningful' lines in the original code get mapped
     if is_optimizing(self.emcc_args):
-      assert seen_lines.issuperset([5, 6, 10, 11, 12])
+      assert seen_lines.issuperset([6, 10, 11, 12])
     else:
-      assert seen_lines.issuperset([5, 6, 7, 10, 11, 12])
+      assert seen_lines.issuperset([6, 7, 10, 11, 12])
 
   def test_modularize_closure_pre(self):
     # test that the combination of modularize + closure + pre-js works. in that mode,
