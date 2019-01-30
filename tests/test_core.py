@@ -6000,7 +6000,7 @@ return malloc(size);
     self.do_autodebug(filename)
 
     # Compare to each other, and to expected output
-    self.do_ll_run(filename + '.o.ll.ll', 'AD:-1,1')
+    self.do_ll_run(filename + '.autodebug.ll', 'AD:-1,1')
 
     # Test using build_ll_hook
     src = '''
